@@ -40,7 +40,7 @@ for i, valor in enumerate(faturamento_lojas):
 plt.show()
 
 
-# vendas or categoria
+# vendas por categoria
 vendas_categorias = {}
 for i, loja in enumerate([loja1, loja2, loja3, loja4], start=1):
     vendas_categoria = loja['Categoria do Produto'].value_counts()
@@ -54,6 +54,7 @@ for categorias_loja in vendas_categorias.values():
     categorias.update(categorias_loja.keys())
 
 categorias = list(categorias)
+print(f'Vendas por categoria: {vendas_categorias}')
 # Gráfico Linear - Vendas por Categoria
 plt.figure(figsize=(10, 6))
 for loja, vendas in vendas_categorias.items():
@@ -116,6 +117,8 @@ for i, loja in enumerate([loja1, loja2, loja3, loja4], start=1):
     qtd_vendas_mais.append(qtd_mais)
     qtd_vendas_menos.append(qtd_menos)
 
+print(f'produtos mais vendidos por loja: {mais_vendidos}')
+print(f'Produto mais vendido por loja: {mais_vendidos}')
 # Gráfico de pizza - Mais vendidos
 plt.figure(figsize=(8, 8))
 plt.pie(qtd_vendas_mais, labels=[f'{loja}\n{produto}\nQtd: {qtd}' for loja, produto, qtd in zip(lojas, mais_vendidos, qtd_vendas_mais)])
@@ -149,3 +152,19 @@ plt.title('Frete Médio por Loja')
 plt.xlabel('Lojas')
 plt.ylabel('Frete Médio (R$)')
 plt.show()
+
+
+# Extra gráfico de dispesão - Distribuição das vendas
+plt.figure(figsize=(10,6))
+
+for i, loja in enumerate([loja1, loja2, loja3, loja4], start=1):
+    loja['Faturamento'] = loja['Preço'] + loja['Frete']
+    plt.scatter(loja['lon'], loja['lat'], s=loja['Faturamento']/10, label=f'Loja {i}', alpha=0.6)  # divide pra não ficar gigante
+
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.title('Distribuição das Vendas (Tamanho proporcional ao Faturamento)')
+plt.legend()
+plt.grid(True)
+plt.show()
+
