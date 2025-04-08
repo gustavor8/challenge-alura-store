@@ -1,6 +1,6 @@
 # Análise de Dados - Desafio Alura Store
 
-Este projeto tem como objetivo realizar uma análise exploratória dos dados de quatro lojas fornecidas no desafio de análise de dados da Alura Store. Foram utilizadas bibliotecas como Pandas e Matplotlib em Python para manipulação dos dados e criação de visualizações.
+EEste projeto foi desenvolvido como parte do desafio de Ciência de Dados do programa **Oracle Next Education (ONE)** em parceria com a **Alura**. O objetivo principal é realizar uma análise exploratória dos dados de quatro lojas fornecidas no desafio, utilizando técnicas de manipulação e visualização de dados com Python.
 
 ## Tecnologias utilizadas
 
